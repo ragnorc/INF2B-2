@@ -1,0 +1,22 @@
+%
+%
+function M = task1_2(X, Y)
+% Input:
+%  X : M-by-D data matrix (double)
+%  Y : M-by-1 label vector (unit8)
+% Output:
+%  M : (K+1)-by-D mean vector matrix (double)
+%      Note that M(K+1,:) is the mean vector of X.
+
+meanMatrix = zeros(11,784)
+sizes = zeros(11)
+for i=1:size(Y,1)
+    classIndex = Y(i)+1;
+    meanMatrix(classIndex,:) = meanMatrix(classIndex,:) + X(i,:);
+    meanMatrix(11,:) = meanMatrix(11,:) + X(i,:);
+    sizes = sizes(classIndex) + 1;
+    end
+end
+
+
+end

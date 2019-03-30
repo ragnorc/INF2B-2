@@ -3,7 +3,5 @@
   Xtrn = double(Xtrn)/255.0;
   Xtst = double(Xtst)/255.0;
  % disp_one(Xtrn, Ytrn);
-  %task1_1(Xtrn, Ytrn);
-  M = task1_2(Xtrn, Ytrn);
-  save('task1_2_M.mat','M');
-  %imshow( reshape(V(3,:), 28, 28)' );
+  V = task1_2(Xtrn, Ytrn);
+  imshow( reshape(V(i,:), 28, 28)' );

@@ -7,7 +7,7 @@ function task1_1(X, Y)
 
 indices = ones([1,10]);
 montageImages = zeros(28,28,10,10);
-% 4D matrix 28x28x10x10
+% 4D matrix 28x28x10 (sample) x10 (class)
 for i=1:size(Y,1)
     classIndex = Y(i)+1;
     sampleIndex = indices(classIndex);
