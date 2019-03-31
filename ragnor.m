@@ -7,5 +7,5 @@
   %task1_1(Xtrn, Ytrn);
   %M = task1_2(Xtrn, Ytrn);
   %save('task1_2_M.mat','M');
-  comp_pca(Xtrn(1:30,:));
+  %comp_pca(Xtrn(1:30,:));
   
