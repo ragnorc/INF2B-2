@@ -9,25 +9,17 @@ function [EVecs, EVals] = comp_pca(X)
 %   (Note that the i-th columns of Evecs should corresponds to the i-th element in EVals)
 %% TO-DO
 meanVector = zeros(1,784);
-sampleSize = size(X,1);
-covarianceMatrix = zeros(784,784);
+sampleSize = size(X);
 for i=1:sampleSize
     meanVector = meanVector + X(i,:);
 end
 meanVector = meanVector / sampleSize;
 for i=1:sampleSize
-   covarianceMatrix = covarianceMatrix + ((X(i,:)-meanVector)'*(X(i,:)-meanVector));
+    meanVector = meanVector + X(i,:);
 end
-covarianceMatrix = covarianceMatrix / sampleSize;
-[EVecs, EVals] = eig(covarianceMatrix);
-EVals = diag(EVals);
-for i=1:size(EVals,1)
-    if EVecs(1,i) < 0
-       EVecs(:,i) = (-1)*EVecs(:,i);
-    end
-end
-[EVals,indices] = sort(EVals,'descend');
-EVecs = EVecs(:,indices);
+EVecs = nan;
+EVals = nan;
+
 
 end
 

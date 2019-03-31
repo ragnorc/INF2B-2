@@ -9,6 +9,8 @@ function [EVecs, EVals] = comp_pca(X)
 %   (Note that the i-th columns of Evecs should corresponds to the i-th element in EVals)
   %% TO-DO
     
+
+
     EVecs = nan;
     EVals = nan;
 
