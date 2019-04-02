@@ -1,4 +1,4 @@
-  dset_dir = '/Users/ragnor/Development/repos/INF2B-2';
+ dset_dir = '/Users/ragnor/Development/repos/INF2B-2';
   [Xtrn, Ytrn, Xtst, Ytst] = load_my_data_set(dset_dir);
   Xtrn = double(Xtrn)/255.0;
   Xtst = double(Xtst)/255.0;
@@ -8,4 +8,11 @@
   %M = task1_2(Xtrn, Ytrn);
   %save('task1_2_M.mat','M');
   %comp_pca(Xtrn(1:30,:));
-  
+montageImages = zeros(28,28,11);
+for c=1:10
+montageImages(:,:,c) = reshape(C(c,:), 28, 28)';
+end
+figure
+montage(montageImages);
+
+
