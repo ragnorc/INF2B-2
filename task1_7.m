@@ -13,5 +13,12 @@ function Dmap = task1_7(MAT_ClusterCentres, MAT_M, MAT_evecs, MAT_evals, posVec,
 %  Dmap  : nbins-by-nbins matrix (uint8) - each element represents
 %	   the cluster number that the point belongs to.
 
-			  
+
+Xplot = linspace(min(A(:,1)), max(A(:,1)), nbins)';
+Yplot = linspace(min(A(:,2)), max(A(:,2)), nbins)';
+% Obtain the grid vectors for the two dimensions
+[Xv Yv] = meshgrid(Xplot, Yplot);
+gridX = [Xv(:), Yv(:)]; % Concatenate to get a 2-D point.			  
+
+
 end

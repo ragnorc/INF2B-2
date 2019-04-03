@@ -1,4 +1,4 @@
-function distanceMatrix = vectorisedEuclid(A,B,dimA,dimB)
+function distanceMatrix = mySqDist(A,B,dimA,dimB)
 
 
 %% Distance calculation using Vectorisation

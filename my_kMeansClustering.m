@@ -1,5 +1,5 @@
 %
-function [C, idx, SSE, helper] = my_kMeansClustering(X, k, initialCentres, maxIter)
+function [C, idx, SSE] = my_kMeansClustering(X, k, initialCentres, maxIter)
 % Input
 %   X : N-by-D matrix (double) of input sample data
 %   k : scalar (integer) - the number of clusters
@@ -23,8 +23,8 @@ C = initialCentres;
 
 for i=1:maxIter
     idxInvariant = true;
-    SSE(i,:) = 0;
-    distMatr = vectorisedEuclid(X,C,numPoints,k);
+    SSE(i,1) = 0;
+    distMatr = mySqDist(X,C,numPoints,k);
     %Assign points to clusters
     for p=1:numPoints
         [minDist,clusterIndex] = min(distMatr(p,:));
@@ -34,7 +34,6 @@ for i=1:maxIter
             idx(p) = clusterIndex;
         end
     end
-    helper(:,i) = idx;
     
     if idxInvariant
         break;
