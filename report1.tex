@@ -1,11 +1,12 @@
 \documentclass{article}
 \usepackage[top=1cm]{geometry}
 \usepackage{graphicx}
+\usepackage[section]{placeins}
 \usepackage{subfig}
 \title{Report 1}
-
+\pagenumbering{gobble}
 \begin{document}
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \begin{tabular}{cc}
 \includegraphics[width=55mm]{task1_1_imgs_class1.eps} &   \includegraphics[width=55mm]{task1_1_imgs_class2.eps} \\
@@ -20,33 +21,6 @@ Class 1 & Class 2 \\[6pt]
      Class 9 & Class 10 \\[6pt]
      
 \end{tabular}
-\caption{Task 1.1}
-\end{figure}
-\begin{figure}
- \centering
-	\includegraphics[width=150mm]{task1_2_imgs.eps}
- \caption{Task 1.2 - Montage of mean vectors}
-\end{figure}
-\begin{figure}
- \centering
-	\includegraphics[width=150mm]{task1_3_graph.eps}
- \caption{Task 1.3 - Cumulative Variances}
-\end{figure}
-\begin{figure}
-\centering
-\begin{tabular}{l*{6}{c}r}
-Variance      &      Components \\
-\hline
-70\% & 26   \\
-80\%            & 44   \\
-90\%           & 87   \\
-95\%           & 154 \\
-\end{tabular}
-\end{figure}
-\newpage
-\begin{figure}
-\centering
-	\includegraphics[width=170mm]{task1_4_imgs.eps}
-	   \caption{Task 1.4 - First ten principal components}
+
 \end{figure}
 \end{document}
