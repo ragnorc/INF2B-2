@@ -29,8 +29,8 @@ varY2 = EVals(1,:);
 Y1plot = linspace(meanY1-5*sqrt(varY1),meanY2+5*sqrt(varY1), nbins)';
 Y2plot = linspace(meanY1-5*sqrt(varY2),meanY2+5*sqrt(varY2), nbins)';
 % Obtain the grid vectors for the two dimensions
-[Xv Yv] = meshgrid(Y1plot, Y2plot);
-grid2D = [Xv(:), Yv(:)]; % Concatenate to get a 2-D point.			  
+[Y1v Y2v] = meshgrid(Y1plot, Y2plot);
+grid2D = [Y1v(:), Y2v(:)]; % Concatenate to get a 2-D point.			  
 %Dmap = grid2D;
 % Revert projection into D-Space 
 projectedGridPoints = zeros(numGridPoints,784);
@@ -45,6 +45,12 @@ for i=1:numGridPoints
     [minDist,clusterIndex] = min(distMatr(i,:));
     classesOfPoints(i,:) = clusterIndex;
 end
-Dmap = permute(reshape(classesOfPoints,200,200),[2 1])
+
+Dmap = permute(reshape(classesOfPoints,nbins,nbins),[2 1])
+
+% This function will draw the decision boundaries
+figure
+[CC,h] = contourf(Y1plot(:), Y2plot(:),reshape(classesOfPoints, length(Y1plot), length(Y2plot)));
+set(h,'LineColor','none');
 end
 
