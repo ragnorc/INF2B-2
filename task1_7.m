@@ -13,12 +13,38 @@ function Dmap = task1_7(MAT_ClusterCentres, MAT_M, MAT_evecs, MAT_evals, posVec,
 %  Dmap  : nbins-by-nbins matrix (uint8) - each element represents
 %	   the cluster number that the point belongs to.
 
-
-Xplot = linspace(min(A(:,1)), max(A(:,1)), nbins)';
-Yplot = linspace(min(A(:,2)), max(A(:,2)), nbins)';
+load(MAT_evecs,'EVecs');
+load(MAT_evals,'EVals');
+load(MAT_M,'M');
+load(MAT_ClusterCentres,'C');
+mean = M(end,:); % row vectors
+Y1 = EVecs(:,1); %column vectors
+Y2 = EVecs(:,2);
+numGridPoints = nbins*nbins;
+% The means are the projection of the mean onto the 2 principal components
+meanY1 = mean*Y1;
+meanY2 = mean*Y2;
+varY1 = EVals(1,:);
+varY2 = EVals(1,:);
+Y1plot = linspace(meanY1-5*sqrt(varY1),meanY2+5*sqrt(varY1), nbins)';
+Y2plot = linspace(meanY1-5*sqrt(varY2),meanY2+5*sqrt(varY2), nbins)';
 % Obtain the grid vectors for the two dimensions
-[Xv Yv] = meshgrid(Xplot, Yplot);
-gridX = [Xv(:), Yv(:)]; % Concatenate to get a 2-D point.			  
-
-
+[Xv Yv] = meshgrid(Y1plot, Y2plot);
+grid2D = [Xv(:), Yv(:)]; % Concatenate to get a 2-D point.			  
+%Dmap = grid2D;
+% Revert projection into D-Space 
+projectedGridPoints = zeros(numGridPoints,784);
+for i=1:numGridPoints
+    projectedGridPoints(i,:) = (EVecs*padarray(grid2D(i,:),[0 782], 'post')'+posVec')'; % Orthogonality of EVecs implies that the inverse of EVecs is EVecs'
 end
+
+%1-NN Classification
+classesOfPoints = zeros(numGridPoints,1);
+distMatr = mySqDist(projectedGridPoints,C,numGridPoints,size(C,1));
+for i=1:numGridPoints
+    [minDist,clusterIndex] = min(distMatr(i,:));
+    classesOfPoints(i,:) = clusterIndex;
+end
+Dmap = permute(reshape(classesOfPoints,200,200),[2 1])
+end
+
