@@ -6,6 +6,15 @@ function [Ypreds] = run_knn_classifier(Xtrain, Ytrain, Xtest, Ks)
 %   Ks     : 1-by-L vector (integer) of the numbers of nearest neighbours in Xtrain
 % Output:
 %   Ypreds : N-by-L matrix (uint8) of predicted labels for Xtest
-
-
+numXtrain = size(Xtrain,1);
+numXtest = size(Xtest,1);
+numL = size(Ks,2);
+distMatr = mySqDist(Xtest,Xtrain,numXtest,numXtrain);
+Ypreds = zeros(numXtest,numL);
+for l=1:numL
+    for i=1:numXtest
+        [d I] = sort(distMatr(i,:), 'ascend');
+        Ypreds(i,l) = mode(Ytrain(I(1:Ks(l))));
+    end
+end
 end

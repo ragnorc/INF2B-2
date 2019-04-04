@@ -25,9 +25,9 @@
 % Dmap = task1_7('task1_5_c_10.mat', 'task1_2_M.mat', 'task1_3_evecs.mat','task1_3_evals.mat', mean(Xtrn), 200);
 % save('task1_7_dmap_10.mat','Dmap');
 
-Ks = [1,2,3,4,5,7,10,15,20];
-for i=1:size(Ks,2)
-    figure
-    task1_6(sprintf('task1_5_c_%d.mat',Ks(i)));
-end
+% Ks = [1,2,3,4,5,7,10,15,20];
+% for i=1:size(Ks,2)
+%     figure
+%     task1_6(sprintf('task1_5_c_%d.mat',Ks(i)));
+% end
 

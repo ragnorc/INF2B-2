@@ -5,6 +5,13 @@ function [CM, acc] = comp_confmat(Ytrues, Ypreds)
 % Output:
 %   CM : K-by-K confusion matrix, where CM(i,j) is the number of samples whose target is the ith class that was classified as j
 %   acc : accuracy (i.e. correct classification rate)
+K = size(Ytrues,1);
+CM = zeros(10,10);
+for i=1:K
+    CM(Ytrues(i)+1,Ypreds(i)+1) = CM(Ytrues(i)+1,Ypreds(i)+1) + 1;
+end
+acc = sum(diag(CM))/K;
+
 
 
 end

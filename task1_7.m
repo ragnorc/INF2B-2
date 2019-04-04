@@ -25,7 +25,7 @@ numGridPoints = nbins*nbins;
 meanY1 = mean*Y1;
 meanY2 = mean*Y2;
 varY1 = EVals(1,:);
-varY2 = EVals(1,:);
+varY2 = EVals(2,:);
 Y1plot = linspace(meanY1-5*sqrt(varY1),meanY2+5*sqrt(varY1), nbins)';
 Y2plot = linspace(meanY1-5*sqrt(varY2),meanY2+5*sqrt(varY2), nbins)';
 % Obtain the grid vectors for the two dimensions
