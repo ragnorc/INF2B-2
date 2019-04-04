@@ -8,13 +8,7 @@ function [EVecs, EVals] = comp_pca(X)
 %       Eigenvalues in descending order, D x 1 vector (double)
 %   (Note that the i-th columns of Evecs should corresponds to the i-th element in EVals)
 %% TO-DO
-sampleSize = size(X,1);
-covarianceMatrix = zeros(784,784);
-meanVector = myMean(X);
-for i=1:sampleSize
-   covarianceMatrix = covarianceMatrix + ((X(i,:)-meanVector)'*(X(i,:)-meanVector));
-end
-covarianceMatrix = covarianceMatrix / sampleSize;
+covarianceMatrix = myCov(X);
 [EVecs, EVals] = eig(covarianceMatrix);
 EVals = diag(EVals);
 for i=1:size(EVals,1)
