@@ -25,19 +25,6 @@ for i=1:numClasses
     Covs(i,:,:) = myCov(classElements);
 end
 
-%Classification
-% for i=1:numTest
-%     maxClass = 1;
-%     maxP = 0;
-%     for c=1:numClasses
-%       p = myGaussPDF(Ms(c,:)',reshape(Covs(1,:,:), [dimTrain,dimTrain]),Xtest(i,:)',epsilon);
-%       if p >= maxP
-%           maxClass = c;
-%       end
-%     end
-%     
-% end
-
 
 %Classification
 logProbMatrix = zeros(numClasses,numTest);
