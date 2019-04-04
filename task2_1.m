@@ -19,7 +19,7 @@ for i=1:size(Ks,2)
     [cm, acc] = comp_confmat(Ytest,Ypreds(:,1));
     fprintf('Accuracy: %.4f\n',acc);
     fprintf('Number of wrongly classified test samples: %d\n',numSamples-sum(diag(cm)));
-    save(sprintf('task2_1_cm%d.mat',Ks(i)));
+    save(sprintf('task2_1_cm%d.mat',Ks(i)),'cm');
     
 end
 
