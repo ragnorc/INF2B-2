@@ -16,8 +16,8 @@ function Dmap = task2_2(Xtrain, Ytrain, k, MAT_evecs, MAT_evals, posVec, nbins)
 load(MAT_evecs,'EVecs');
 load(MAT_evals,'EVals');
 numSamples = size(Xtrain,1);
-mean = sum(Xtrain,1)/numSamples; % row vectors
-Y1 = EVecs(:,1); %column vectors
+mean = myMean(Xtrain); % row vector
+Y1 = EVecs(:,1); %column vector
 Y2 = EVecs(:,2);
 numGridPoints = nbins*nbins;
 % The means are the projection of the mean onto the 2 principal components
