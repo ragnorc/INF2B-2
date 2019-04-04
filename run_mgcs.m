@@ -14,14 +14,13 @@ function [Ypreds, MMs, MCovs] = run_mgcs(Xtrain, Ytrain, Xtest, epsilon, L)
 numClasses = 10;
 [numTrain, dimTrain] = size(Xtrain);
 [numTest, dimTest] = size(Xtest);
-Ypreds = zeros(size(Xtest,1),1);
 MMs = zeros(numClasses*L,dimTrain);
 MCovs = zeros(numClasses*L,dimTrain,dimTrain);
 
 %Learn parameters
 clusIndex = 0;
 for i=1:numClasses
-    classElements = Xtrain(find(Ytrain==(i-1)),:);
+    classElements = Xtrain((Ytrain==(i-1)),:);
     [C, idx, SSE] = my_kMeansClustering(classElements, L, classElements(1:L,:));
      
     for clus=1:L
