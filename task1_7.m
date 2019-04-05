@@ -47,6 +47,7 @@ for i=1:numGridPoints
 end
 
 Dmap = permute(reshape(classesOfPoints,nbins,nbins),[2 1])
+Dmap = uint8(Dmap);
 
 % This function will draw the decision boundaries
 figure
