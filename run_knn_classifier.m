@@ -17,4 +17,5 @@ for l=1:numL
         Ypreds(i,l) = mode(Ytrain(I(1:Ks(l))));
     end
 end
+Ypreds = uint8(Ypreds);
 end

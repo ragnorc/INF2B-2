@@ -11,7 +11,7 @@ for i=1:K
     CM(Ytrues(i)+1,Ypreds(i)+1) = CM(Ytrues(i)+1,Ypreds(i)+1) + 1;
 end
 acc = sum(diag(CM))/K;
-
+CM = int32(CM);
 
 
 end

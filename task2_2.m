@@ -41,8 +41,8 @@ end
 Ypreds = run_knn_classifier(Xtrain, Ytrain, projectedGridPoints, k);
 classesOfPoints = Ypreds(:,1);
 
-Dmap = permute(reshape(classesOfPoints,nbins,nbins),[2 1])
-
+Dmap = permute(reshape(classesOfPoints,nbins,nbins),[2 1]);
+Dmap = uint8(Dmap);
 % This function will draw the decision boundaries
 figure
 [CC,h] = contourf(Y1plot(:), Y2plot(:),reshape(classesOfPoints, length(Y1plot), length(Y2plot)));
