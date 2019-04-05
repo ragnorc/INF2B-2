@@ -30,9 +30,9 @@ Y1plot = linspace(meanY1-5*sqrt(varY1),meanY2+5*sqrt(varY1), nbins)';
 Y2plot = linspace(meanY1-5*sqrt(varY2),meanY2+5*sqrt(varY2), nbins)';
 % Obtain the grid vectors for the two dimensions
 [Y1v Y2v] = meshgrid(Y1plot, Y2plot);
-grid2D = [Y1v(:), Y2v(:)]; % Concatenate to get a 2-D point.			  
-%Dmap = grid2D;
-% Revert projection into D-Space 
+grid2D = [Y1v(:), Y2v(:)]; % Concatenate to get a 2-D point.
+% Dmap = grid2D;
+% Revert projection into D-Space
 projectedGridPoints = zeros(numGridPoints,784);
 for i=1:numGridPoints
     projectedGridPoints(i,:) = (EVecs*padarray(grid2D(i,:),[0 782], 'post')'+posVec')'; % Orthogonality of EVecs implies that the inverse of EVecs is EVecs'

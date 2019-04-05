@@ -12,11 +12,11 @@ for i=1:size(Y,1)
     classIndex = Y(i)+1;
     sampleIndex = indices(classIndex);
     if sampleIndex <= 10
-    montageImages(:,:,sampleIndex,classIndex) = reshape(X(i,:), 28, 28)';
-    indices(classIndex) = sampleIndex + 1;
+        montageImages(:,:,sampleIndex,classIndex) = reshape(X(i,:), 28, 28)';
+        indices(classIndex) = sampleIndex + 1;
     end
 end
-for c=1:10  
-figure, montage(montageImages(:,:,:,c));
+for c=1:10
+    figure, montage(montageImages(:,:,:,c));
 end
 end

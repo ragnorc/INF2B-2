@@ -6,8 +6,8 @@ function task1_4(EVecs)
 %
 MontageVec = zeros(28,28,10);
 for i=1:10
-   MontageVec(:,:,i) = reshape(EVecs(:,i)',28,28);
+    MontageVec(:,:,i) = reshape(EVecs(:,i)',28,28);
 end
 figure
-montage(MontageVec,'DisplayRange', [-0.5, 0.5]);
+montage(MontageVec,'DisplayRange', [-0.25, 0.25]);
 end

@@ -22,7 +22,7 @@ end
 M = M ./ sizes;
 montageImages = zeros(28,28,11);
 for c=1:11
-montageImages(:,:,c) = reshape(M(c,:), 28, 28)';
+    montageImages(:,:,c) = reshape(M(c,:), 28, 28)';
 end
 montage(montageImages);
 end

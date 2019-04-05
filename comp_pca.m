@@ -13,7 +13,7 @@ covarianceMatrix = myCov(X);
 EVals = diag(EVals);
 for i=1:size(EVals,1)
     if EVecs(1,i) < 0
-       EVecs(:,i) = (-1)*EVecs(:,i);
+        EVecs(:,i) = (-1)*EVecs(:,i);
     end
 end
 [EVals,indices] = sort(EVals,'descend');
