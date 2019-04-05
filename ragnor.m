@@ -30,4 +30,13 @@
 %     figure
 %     task1_6(sprintf('task1_5_c_%d.mat',Ks(i)));
 % end
+% plot the gaussian fits
+% [EVecs, EVals] = comp_pca(Xtst);
+% projectedPoints = (EVecs(:,1:2)' * Xtst')';
+% numClasses = 10;
+% numPoints = size(projectedPoints,1);
+% classElements = projectedPoints(find(Y==0),:);
+% C = myCov(classElements);
+% means = myMean(classElements)';
+% 
 

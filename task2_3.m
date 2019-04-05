@@ -12,16 +12,11 @@ numPoints = size(projectedPoints,1);
 % Parameter Estimation for Gaussian
 
 for i=1:numClasses
-    classElements = projectedPoints(find(Y==i-1),:);
-     %error_ellipse(projectedPoints(find(Y==i-1),:));
-     if(size(classElements,1)>2)
-     plotgauss2D(myMean(classElements)',myCov(classElements),classElements');
-     hold on;
-     end
+    classElements = projectedPoints((Y==i-1),:);
+    if(size(classElements,1)>2)
+        plotgauss2D(myMean(classElements)',myCov(classElements),classElements');
+        hold on;
+    end
 end
-mindata = min(min(X));
-maxdata = max(max(X));
-xlim([-10,10]);
-ylim([-10,10]);
 
 end

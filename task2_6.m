@@ -42,7 +42,7 @@ end
 [Ypreds, Ms, Covs] = run_gaussian_classifiers(Xtrain, Ytrain, projectedGridPoints, 0.01);
 classesOfPoints = Ypreds(:,1);
     
-Dmap = permute(reshape(classesOfPoints,nbins,nbins),[2 1])
+Dmap = permute(reshape(classesOfPoints,nbins,nbins),[2 1]);
 
 % This function will draw the decision boundaries
 figure
