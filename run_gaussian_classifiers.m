@@ -33,5 +33,5 @@ end
 
 [maxV,maxI] = max(logProbMatrix);
 Ypreds = (maxI - ones(1,numTest))'; %Subtract 1 since working with labels zero
-
+Ypreds = uint8(Ypreds);
 end
