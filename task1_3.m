@@ -20,5 +20,5 @@ MinDims(1) = find(CumVar>=0.7*TotalVar,1);
 MinDims(2) = find(CumVar>=0.8*TotalVar,1);
 MinDims(3) = find(CumVar>=0.9*TotalVar,1);
 MinDims(4) = find(CumVar>=0.95*TotalVar,1);
-
+MinDims = int32(MinDims);
 end
