@@ -1,4 +1,4 @@
-function plotgauss2D(means,covM,points)
+function plotgauss2D(means,covM)
 
 %axes
 % var = diag(covM);
@@ -27,15 +27,12 @@ function plotgauss2D(means,covM,points)
 % scatter(plotPoints(:,1),plotPoints(:,2),100,'Marker','.');
 % hold on;
 
-
-npts = 50;
-axh = gca;
-tt=linspace(0,2*pi,npts)';
-x = cos(tt); y=sin(tt);
+ls=linspace(0,2*pi,50)';
+x = cos(ls); y=sin(ls);
 ap = [x(:) y(:)]';
 [v,d]=eig(covM); 
-d = sqrt(d); % 1 standard deviation as required by taks
-bp = (v*d*ap) + repmat(means, 1, size(ap,2)); 
-h = plot(bp(1,:), bp(2,:), '-', 'parent', axh);
+d = sqrt(d); % 1 standard deviation as required by task
+dp = (v*d*ap) + repmat(means, 1, size(ap,2)); 
+plot(dp(1,:), dp(2,:), '-', 'parent', gca);
 hold on
 end

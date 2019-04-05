@@ -14,7 +14,7 @@ numPoints = size(projectedPoints,1);
 for i=1:numClasses
     classElements = projectedPoints((Y==i-1),:);
     if(size(classElements,1)>2)
-        plotgauss2D(myMean(classElements)',myCov(classElements),classElements');
+        plotgauss2D(myMean(classElements)',myCov(classElements));
         hold on;
     end
 end
