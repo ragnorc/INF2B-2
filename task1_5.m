@@ -8,6 +8,7 @@ function task1_5(X, Ks)
 for i=1:size(Ks,2)
     k = Ks(i);
     [C,idx,SSE] =  my_kMeansClustering(X,k,X(1:k,:));
+    idx = int32(idx);
     save(sprintf('task1_5_c_%d.mat',k),'C');
     save(sprintf('task1_5_idx_%d.mat',k),'idx');
     save(sprintf('task1_5_sse_%d.mat',k),'SSE');
